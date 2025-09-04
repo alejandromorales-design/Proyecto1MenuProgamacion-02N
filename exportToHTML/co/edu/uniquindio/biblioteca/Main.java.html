@@ -1,0 +1,128 @@
+<html>
+<head>
+<title>Main.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Main.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">co</span><span class="s2">.</span><span class="s1">edu</span><span class="s2">.</span><span class="s1">uniquindio</span><span class="s2">.</span><span class="s1">biblioteca</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">co</span><span class="s2">.</span><span class="s1">edu</span><span class="s2">.</span><span class="s1">uniquindio</span><span class="s2">.</span><span class="s1">biblioteca</span><span class="s2">.</span><span class="s1">model</span><span class="s2">.</span><span class="s1">Cliente</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">co</span><span class="s2">.</span><span class="s1">edu</span><span class="s2">.</span><span class="s1">uniquindio</span><span class="s2">.</span><span class="s1">biblioteca</span><span class="s2">.</span><span class="s1">model</span><span class="s2">.</span><span class="s1">Empleado</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">co</span><span class="s2">.</span><span class="s1">edu</span><span class="s2">.</span><span class="s1">uniquindio</span><span class="s2">.</span><span class="s1">biblioteca</span><span class="s2">.</span><span class="s1">model</span><span class="s2">.</span><span class="s1">Libro</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Scanner</span><span class="s2">;</span>
+
+
+<span class="s0">public class </span><span class="s1">Main </span><span class="s2">{</span>
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+        <span class="s1">mostrarMenu</span><span class="s2">();</span>
+
+        <span class="s0">int </span><span class="s1">opcionSeleecionada</span><span class="s2">= </span><span class="s1">leerEntero</span><span class="s2">(</span><span class="s3">&quot;Ingrese un número de acuerdo a las opciones&quot;</span><span class="s2">);</span>
+        <span class="s0">if</span><span class="s2">(</span><span class="s1">opcionSeleecionada</span><span class="s2">==</span><span class="s4">1</span><span class="s2">){</span>
+            <span class="s1">String respuesta </span><span class="s2">= </span><span class="s1">crearCliente</span><span class="s2">();</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">respuesta </span><span class="s2">+ </span><span class="s3">&quot;Cliente creado&quot;</span><span class="s2">);</span>
+        <span class="s2">} </span><span class="s0">else if</span><span class="s2">(</span><span class="s1">opcionSeleecionada</span><span class="s2">==</span><span class="s4">2</span><span class="s2">){</span>
+            <span class="s1">String respuesta </span><span class="s2">= </span><span class="s1">crearEmpleado</span><span class="s2">();</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">respuesta </span><span class="s2">+ </span><span class="s3">&quot;Empleado creado&quot;</span><span class="s2">);</span>
+        <span class="s2">} </span><span class="s0">else if </span><span class="s2">(</span><span class="s1">opcionSeleecionada</span><span class="s2">==</span><span class="s4">3</span><span class="s2">) {</span>
+            <span class="s1">String respuesta </span><span class="s2">= </span><span class="s1">seleccionarLibro</span><span class="s2">();</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">respuesta </span><span class="s2">+ </span><span class="s3">&quot;Libro Seleccionado&quot;</span><span class="s2">);</span>
+        <span class="s2">} </span><span class="s0">else if </span><span class="s2">(</span><span class="s1">opcionSeleecionada</span><span class="s2">==</span><span class="s4">4</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Saliendo de la aplicacion&quot;</span><span class="s2">);</span>
+
+        <span class="s2">}</span><span class="s0">else</span><span class="s2">{ </span><span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Opcion no es valida&quot;</span><span class="s2">);</span>
+
+
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public static </span><span class="s1">String crearCliente</span><span class="s2">(){</span>
+        <span class="s1">String nombreCliente </span><span class="s2">= </span><span class="s1">leerString</span><span class="s2">(</span><span class="s3">&quot;Ingrese el nombre del cliennte: &quot;</span><span class="s2">);</span>
+        <span class="s1">String apellidoCliente </span><span class="s2">= </span><span class="s1">leerString</span><span class="s2">(</span><span class="s3">&quot;Ingrese el apellido del cliente: &quot;</span><span class="s2">);</span>
+        <span class="s0">int </span><span class="s1">idCliente </span><span class="s2">= </span><span class="s1">leerEntero</span><span class="s2">(</span><span class="s3">&quot;Ingrese el ID del cliente: &quot;</span><span class="s2">);</span>
+        <span class="s0">int </span><span class="s1">edadCliente</span><span class="s2">= </span><span class="s1">leerEntero</span><span class="s2">(</span><span class="s3">&quot;Ingrese la edad del cliente: &quot;</span><span class="s2">);</span>
+            <span class="s0">if </span><span class="s2">( </span><span class="s1">edadCliente</span><span class="s2">&lt;</span><span class="s4">10 </span><span class="s2">|| </span><span class="s1">edadCliente</span><span class="s2">&gt;</span><span class="s4">100</span><span class="s2">){</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;La edad del cliente es invalida&quot;</span><span class="s2">);</span>
+            <span class="s2">}</span>
+        <span class="s0">int </span><span class="s1">telefonoCliente </span><span class="s2">= </span><span class="s1">leerEntero</span><span class="s2">(</span><span class="s3">&quot;Ingrese el número de telefono del cliente&quot;</span><span class="s2">);</span>
+
+        <span class="s1">Cliente cliente </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Cliente</span><span class="s2">(</span><span class="s1">nombreCliente</span><span class="s2">, </span><span class="s1">apellidoCliente</span><span class="s2">, </span><span class="s1">idCliente</span><span class="s2">, </span><span class="s1">edadCliente</span><span class="s2">, </span><span class="s1">telefonoCliente</span><span class="s2">);</span>
+        <span class="s1">cliente</span><span class="s2">.</span><span class="s1">setNombre</span><span class="s2">(</span><span class="s1">nombreCliente</span><span class="s2">);</span>
+        <span class="s1">cliente</span><span class="s2">.</span><span class="s1">setApellido</span><span class="s2">(</span><span class="s1">apellidoCliente</span><span class="s2">);</span>
+        <span class="s1">cliente</span><span class="s2">.</span><span class="s1">setId</span><span class="s2">(</span><span class="s1">idCliente</span><span class="s2">);</span>
+        <span class="s1">cliente</span><span class="s2">.</span><span class="s1">setEdad</span><span class="s2">(</span><span class="s1">edadCliente</span><span class="s2">);</span>
+        <span class="s1">cliente</span><span class="s2">.</span><span class="s1">setTelefono</span><span class="s2">(</span><span class="s1">telefonoCliente</span><span class="s2">);</span>
+        <span class="s0">return </span><span class="s1">cliente</span><span class="s2">.</span><span class="s1">toString</span><span class="s2">();</span>
+
+    <span class="s2">}</span>
+<span class="s0">public static </span><span class="s1">String crearEmpleado</span><span class="s2">(){</span>
+        <span class="s1">String nombreEmpleado </span><span class="s2">=  </span><span class="s1">leerString</span><span class="s2">(</span><span class="s3">&quot;Ingrese el nombre del empleado&quot;</span><span class="s2">);</span>
+        <span class="s1">String apellidoEmpleado </span><span class="s2">= </span><span class="s1">leerString</span><span class="s2">(</span><span class="s3">&quot;Ingrese el apellido del empleado&quot;</span><span class="s2">);</span>
+        <span class="s0">int </span><span class="s1">cedulaEmpleado </span><span class="s2">= </span><span class="s1">leerEntero</span><span class="s2">(</span><span class="s3">&quot;Ingrese el cedula del empleado&quot;</span><span class="s2">);</span>
+        <span class="s0">int </span><span class="s1">edadEmpleado</span><span class="s2">=  </span><span class="s1">leerEntero</span><span class="s2">(</span><span class="s3">&quot;Ingrese la edad del empleado&quot;</span><span class="s2">);</span>
+
+        <span class="s1">Empleado TEMPORALempleado </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Empleado</span><span class="s2">(</span><span class="s1">nombreEmpleado</span><span class="s2">,</span><span class="s1">apellidoEmpleado</span><span class="s2">, </span><span class="s1">cedulaEmpleado</span><span class="s2">, </span><span class="s1">edadEmpleado</span><span class="s2">);</span>
+        <span class="s1">TEMPORALempleado</span><span class="s2">.</span><span class="s1">setNombre</span><span class="s2">(</span><span class="s1">nombreEmpleado</span><span class="s2">);</span>
+        <span class="s1">TEMPORALempleado</span><span class="s2">.</span><span class="s1">setApellido</span><span class="s2">(</span><span class="s1">apellidoEmpleado</span><span class="s2">);</span>
+        <span class="s1">TEMPORALempleado</span><span class="s2">.</span><span class="s1">setCedula</span><span class="s2">(</span><span class="s1">cedulaEmpleado</span><span class="s2">);</span>
+        <span class="s1">TEMPORALempleado</span><span class="s2">.</span><span class="s1">setEdad</span><span class="s2">(</span><span class="s1">edadEmpleado</span><span class="s2">);</span>
+    <span class="s0">return </span><span class="s1">nombreEmpleado</span><span class="s2">;</span>
+<span class="s2">}</span>
+
+<span class="s0">public static </span><span class="s1">String seleccionarLibro</span><span class="s2">(){</span>
+        <span class="s1">String nombreLibro </span><span class="s2">= </span><span class="s1">leerString</span><span class="s2">(</span><span class="s3">&quot;Ingrese el nombre del libro: &quot;</span><span class="s2">);</span>
+        <span class="s0">int </span><span class="s1">codigoLibro</span><span class="s2">=  </span><span class="s1">leerEntero</span><span class="s2">(</span><span class="s3">&quot;Ingrese el codigo del libro: &quot;</span><span class="s2">);</span>
+        <span class="s1">String generoLibro </span><span class="s2">=  </span><span class="s1">leerString</span><span class="s2">(</span><span class="s3">&quot;Ingrese el genero del libro: &quot;</span><span class="s2">);</span>
+        <span class="s1">String idiomaLibro </span><span class="s2">=  </span><span class="s1">leerString</span><span class="s2">(</span><span class="s3">&quot;Ingrese el idioma libro: &quot;</span><span class="s2">);</span>
+
+    <span class="s1">Libro libro </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Libro</span><span class="s2">(</span><span class="s1">nombreLibro</span><span class="s2">, </span><span class="s1">codigoLibro</span><span class="s2">, </span><span class="s1">generoLibro</span><span class="s2">, </span><span class="s1">idiomaLibro</span><span class="s2">);</span>
+
+    <span class="s1">libro</span><span class="s2">.</span><span class="s1">setNombre</span><span class="s2">(</span><span class="s1">nombreLibro</span><span class="s2">);</span>
+    <span class="s1">libro</span><span class="s2">.</span><span class="s1">setCodigo</span><span class="s2">(</span><span class="s1">codigoLibro</span><span class="s2">);</span>
+    <span class="s1">libro</span><span class="s2">.</span><span class="s1">setGenero</span><span class="s2">(</span><span class="s1">generoLibro</span><span class="s2">);</span>
+    <span class="s1">libro</span><span class="s2">.</span><span class="s1">setIdioma</span><span class="s2">(</span><span class="s1">idiomaLibro</span><span class="s2">);</span>
+    <span class="s0">return </span><span class="s1">libro</span><span class="s2">.</span><span class="s1">toString</span><span class="s2">();</span>
+
+
+<span class="s2">}</span>
+
+<span class="s0">public static </span><span class="s1">String leerString</span><span class="s2">(</span><span class="s1">String mensaje</span><span class="s2">){</span>
+        <span class="s1">String respuesta </span><span class="s2">= </span><span class="s3">&quot;&quot;</span><span class="s2">;</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">mensaje</span><span class="s2">);</span>
+        <span class="s1">Scanner leer </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Scanner</span><span class="s2">(</span><span class="s1">System</span><span class="s2">.</span><span class="s1">in</span><span class="s2">);</span>
+        <span class="s1">respuesta </span><span class="s2">= </span><span class="s1">leer</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+        <span class="s0">return </span><span class="s1">respuesta</span><span class="s2">;</span>
+<span class="s2">}</span>
+
+<span class="s0">public static int </span><span class="s1">leerEntero</span><span class="s2">(</span><span class="s1">String mensaje</span><span class="s2">){</span>
+        <span class="s0">int </span><span class="s1">respuesta </span><span class="s2">= </span><span class="s4">0</span><span class="s2">;</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">mensaje</span><span class="s2">);</span>
+        <span class="s1">Scanner leer </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Scanner</span><span class="s2">(</span><span class="s1">System</span><span class="s2">.</span><span class="s1">in</span><span class="s2">);</span>
+        <span class="s1">respuesta </span><span class="s2">= </span><span class="s1">leer</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">();</span>
+        <span class="s0">return </span><span class="s1">respuesta</span><span class="s2">;</span>
+<span class="s2">}</span>
+
+<span class="s0">public static void </span><span class="s1">mostrarMenu</span><span class="s2">(){</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;1/ Crear cliente&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;2/ Crear empleado&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;3/ Seleccionar libro&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;4/ Salir&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+<span class="s2">}</span>
+</pre>
+</body>
+</html>
